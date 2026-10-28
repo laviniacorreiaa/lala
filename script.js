@@ -5,7 +5,7 @@
 // Use o DDI + DDD + número, somente números.
 // Exemplo: "5511999999999"
 // Troque pelo WhatsApp real da sua confeitaria.
-const WHATSAPP_NUMBER = "5511999999999";
+const WHATSAPP_NUMBER = "5511994310979";
 
 const products = [
   {
