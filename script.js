@@ -1,451 +1,326 @@
 
-const questions = [
-    // CIÊNCIA
-    {
-        category: "ciencia",
-        question: "Qual é o planeta mais próximo do Sol?",
-        answers: ["Vênus", "Mercúrio", "Marte", "Terra"],
-        correct: 1,
-        explanation: "Mercúrio é o planeta mais próximo do Sol."
-    },
-    {
-        category: "ciencia",
-        question: "Qual é o símbolo químico da água?",
-        answers: ["CO2", "O2", "H2O", "NaCl"],
-        correct: 2,
-        explanation: "A água é formada por dois átomos de hidrogênio e um de oxigênio."
-    },
-    {
-        category: "ciencia",
-        question: "Quantos ossos tem aproximadamente um adulto?",
-        answers: ["106", "206", "306", "406"],
-        correct: 1,
-        explanation: "Um adulto normalmente tem cerca de 206 ossos."
-    },
-    {
-        category: "ciencia",
-        question: "Qual órgão bombeia o sangue pelo corpo?",
-        answers: ["Pulmão", "Cérebro", "Estômago", "Coração"],
-        correct: 3,
-        explanation: "O coração bombeia o sangue para todo o organismo."
-    },
+"use strict";
 
-    // TECNOLOGIA
-    {
-        category: "tecnologia",
-        question: "O que significa a sigla HTML?",
-        answers: [
-            "HyperText Markup Language",
-            "High Tech Modern Language",
-            "Home Tool Markup Link",
-            "Hyper Transfer Main Logic"
-        ],
-        correct: 0,
-        explanation: "HTML é a linguagem de marcação usada para estruturar páginas web."
-    },
-    {
-        category: "tecnologia",
-        question: "Qual linguagem é muito usada para tornar sites interativos?",
-        answers: ["Photoshop", "JavaScript", "Excel", "Windows"],
-        correct: 1,
-        explanation: "JavaScript permite criar interações, jogos e funcionalidades em sites."
-    },
-    {
-        category: "tecnologia",
-        question: "Qual destas opções é um sistema operacional?",
-        answers: ["Google", "Instagram", "Linux", "YouTube"],
-        correct: 2,
-        explanation: "Linux é um sistema operacional."
-    },
-    {
-        category: "tecnologia",
-        question: "Qual é a função principal de um navegador web?",
-        answers: [
-            "Editar vídeos",
-            "Criar processadores",
-            "Consertar computadores",
-            "Acessar páginas da internet"
-        ],
-        correct: 3,
-        explanation: "Navegadores como Chrome e Firefox permitem acessar sites."
-    },
+// PERSONALIZE AQUI:
+// Use o DDI + DDD + número, somente números.
+// Exemplo: "5511999999999"
+// Troque pelo WhatsApp real da sua confeitaria.
+const WHATSAPP_NUMBER = "5511999999999";
 
-    // GAMES
-    {
-        category: "games",
-        question: "Qual empresa criou o Mario?",
-        answers: ["Sony", "Nintendo", "Microsoft", "Sega"],
-        correct: 1,
-        explanation: "Mario é um personagem da Nintendo."
-    },
-    {
-        category: "games",
-        question: "Qual jogo é famoso por seus blocos e construções?",
-        answers: ["Minecraft", "FIFA", "Pac-Man", "The Sims"],
-        correct: 0,
-        explanation: "Minecraft permite explorar, construir e sobreviver em um mundo de blocos."
-    },
-    {
-        category: "games",
-        question: "Qual destes jogos é um battle royale?",
-        answers: ["Tetris", "Portal", "Fortnite", "Solitaire"],
-        correct: 2,
-        explanation: "Fortnite é conhecido por seu modo battle royale."
-    },
-    {
-        category: "games",
-        question: "Qual personagem é o principal herói de The Legend of Zelda?",
-        answers: ["Mario", "Kratos", "Sonic", "Link"],
-        correct: 3,
-        explanation: "Link é o herói protagonista da série The Legend of Zelda."
-    },
-
-    // GEOGRAFIA
-    {
-        category: "geografia",
-        question: "Qual é a capital do Brasil?",
-        answers: ["São Paulo", "Brasília", "Rio de Janeiro", "Salvador"],
-        correct: 1,
-        explanation: "Brasília é a capital federal do Brasil desde 1960."
-    },
-    {
-        category: "geografia",
-        question: "Qual é o maior oceano do planeta?",
-        answers: ["Atlântico", "Índico", "Pacífico", "Ártico"],
-        correct: 2,
-        explanation: "O oceano Pacífico é o maior e mais profundo do planeta."
-    },
-    {
-        category: "geografia",
-        question: "Em qual continente fica o Egito?",
-        answers: ["África", "Europa", "América", "Oceania"],
-        correct: 0,
-        explanation: "O Egito fica principalmente no nordeste da África."
-    },
-    {
-        category: "geografia",
-        question: "Qual é o maior país do mundo em área territorial?",
-        answers: ["Canadá", "China", "Brasil", "Rússia"],
-        correct: 3,
-        explanation: "A Rússia é o maior país do mundo em área territorial."
-    }
+const products = [
+  {
+    id: 1, name: "Bolo de Chocolate", category: "Bolos",
+    description: "Massa fofinha com brigadeiro cremoso.",
+    price: 65,
+    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 2, name: "Bolo Red Velvet", category: "Bolos",
+    description: "Massa aveludada com creme delicado.",
+    price: 78,
+    image: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 3, name: "Brigadeiros Gourmet", category: "Docinhos",
+    description: "Chocolate intenso com granulado especial.",
+    price: 35,
+    image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 4, name: "Cupcake de Baunilha", category: "Cupcakes",
+    description: "Cobertura cremosa e massa macia.",
+    price: 12,
+    image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 5, name: "Cheesecake de Morango", category: "Sobremesas",
+    description: "Creme suave com calda de morangos.",
+    price: 16,
+    image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 6, name: "Bolo de Morango", category: "Bolos",
+    description: "Recheio cremoso e sabor delicado.",
+    price: 72,
+    image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 7, name: "Macarons", category: "Docinhos",
+    description: "Delicados, coloridos e crocantes.",
+    price: 9,
+    image: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 8, name: "Brownie Especial", category: "Sobremesas",
+    description: "Chocolate intenso com interior úmido.",
+    price: 14,
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+  }
 ];
 
-const categoryNames = {
-    ciencia: "Ciência",
-    tecnologia: "Tecnologia",
-    games: "Games",
-    geografia: "Geografia"
-};
-
-const homeScreen = document.getElementById("home-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-
-const categorySelect = document.getElementById("category");
-const startBtn = document.getElementById("start-btn");
-const quitBtn = document.getElementById("quit-btn");
-const nextBtn = document.getElementById("next-btn");
-const restartBtn = document.getElementById("restart-btn");
-const homeBtn = document.getElementById("home-btn");
-const logo = document.getElementById("logo");
-
-const questionText = document.getElementById("question-text");
-const questionCategory = document.getElementById("question-category");
-const questionCounter = document.getElementById("question-counter");
-const answersContainer = document.getElementById("answers");
-const feedback = document.getElementById("feedback");
-const timerDisplay = document.getElementById("timer");
-const progressBar = document.getElementById("progress-bar");
-const scoreDisplay = document.getElementById("score");
-
-const letters = ["A", "B", "C", "D"];
-const TIME_LIMIT = 15;
-const POINTS_PER_QUESTION = 100;
-
-let quizQuestions = [];
-let currentIndex = 0;
-let score = 0;
-let correctCount = 0;
-let wrongCount = 0;
-let timeLeft = TIME_LIMIT;
-let timerInterval = null;
-let answered = false;
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-// Embaralha uma cópia do array sem alterar o original.
-function shuffle(array) {
-    const copy = [...array];
-
-    for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-    }
-
-    return copy;
-}
-
-function showScreen(screen) {
-    [homeScreen, quizScreen, resultScreen].forEach(element => {
-        element.classList.add("hidden");
-    });
-
-    screen.classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-function startGame() {
-    stopTimer();
-
-    const selectedCategory = categorySelect.value;
-
-    const filteredQuestions = selectedCategory === "todas"
-        ? questions
-        : questions.filter(q => q.category === selectedCategory);
-
-    if (filteredQuestions.length === 0) {
-        alert("Não existem perguntas nesta categoria.");
-        return;
-    }
-
-    // Sorteia a ordem das perguntas.
-    quizQuestions = shuffle(filteredQuestions);
-
-    currentIndex = 0;
-    score = 0;
-    correctCount = 0;
-    wrongCount = 0;
-
-    scoreDisplay.textContent = score;
-
-    showScreen(quizScreen);
-    renderQuestion();
-}
-
-function renderQuestion() {
-    stopTimer();
-
-    answered = false;
-
-    const question = quizQuestions[currentIndex];
-    const total = quizQuestions.length;
-
-    questionCounter.textContent =
-        `PERGUNTA ${currentIndex + 1} DE ${total}`;
-
-    progressBar.style.width =
-        `${(currentIndex / total) * 100}%`;
-
-    questionText.textContent = question.question;
-    questionCategory.textContent =
-        categoryNames[question.category].toUpperCase();
-
-    answersContainer.innerHTML = "";
-    feedback.className = "feedback hidden";
-    feedback.textContent = "";
-
-    nextBtn.classList.add("hidden");
-    nextBtn.innerHTML = currentIndex === total - 1
-        ? 'Ver resultado <span>🏆</span>'
-        : 'Próxima pergunta <span>→</span>';
-
-    question.answers.forEach((answer, index) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "answer-btn";
-
-        const letter = document.createElement("span");
-        letter.className = "answer-letter";
-        letter.textContent = letters[index];
-
-        const text = document.createElement("span");
-        text.className = "answer-text";
-        text.textContent = answer;
-
-        button.append(letter, text);
-
-        button.addEventListener("click", () => {
-            selectAnswer(index);
-        });
-
-        answersContainer.appendChild(button);
-    });
-
-    startTimer();
-}
-
-function startTimer() {
-    timeLeft = TIME_LIMIT;
-    updateTimerDisplay();
-
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
-
-        if (timeLeft <= 0) {
-            stopTimer();
-            handleTimeout();
-        }
-    }, 1000);
-}
-
-function stopTimer() {
-    if (timerInterval !== null) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-    }
-}
-
-function updateTimerDisplay() {
-    timerDisplay.textContent = `⏱ ${timeLeft}s`;
-    timerDisplay.classList.toggle("urgent", timeLeft <= 5);
-}
-
-function selectAnswer(selectedIndex) {
-    if (answered) return;
-
-    answered = true;
-    stopTimer();
-
-    const question = quizQuestions[currentIndex];
-    const buttons = answersContainer.querySelectorAll(".answer-btn");
-    const isCorrect = selectedIndex === question.correct;
-
-    buttons.forEach((button, index) => {
-        button.disabled = true;
-
-        if (index === question.correct) {
-            button.classList.add("correct");
-        } else if (index === selectedIndex) {
-            button.classList.add("wrong");
-        }
-    });
-
-    if (isCorrect) {
-        correctCount++;
-        score += POINTS_PER_QUESTION;
-        scoreDisplay.textContent = score;
-
-        feedback.className = "feedback good";
-        feedback.textContent = `✓ Resposta correta! +${POINTS_PER_QUESTION} pontos. ${question.explanation}`;
-    } else {
-        wrongCount++;
-
-        feedback.className = "feedback bad";
-        feedback.textContent = `✗ Resposta incorreta. ${question.explanation}`;
-    }
-
-    nextBtn.classList.remove("hidden");
-}
-
-function handleTimeout() {
-    if (answered) return;
-
-    answered = true;
-    wrongCount++;
-
-    const question = quizQuestions[currentIndex];
-    const buttons = answersContainer.querySelectorAll(".answer-btn");
-
-    buttons.forEach((button, index) => {
-        button.disabled = true;
-
-        if (index === question.correct) {
-            button.classList.add("correct");
-        }
-    });
-
-    feedback.className = "feedback bad";
-    feedback.textContent =
-        `⏰ O tempo acabou! ${question.explanation}`;
-
-    nextBtn.classList.remove("hidden");
-}
-
-function nextQuestion() {
-    if (!answered) return;
-
-    currentIndex++;
-
-    if (currentIndex < quizQuestions.length) {
-        renderQuestion();
-    } else {
-        finishGame();
-    }
-}
-
-function finishGame() {
-    stopTimer();
-
-    progressBar.style.width = "100%";
-
-    const total = quizQuestions.length;
-    const percentage = Math.round((correctCount / total) * 100);
-
-    document.getElementById("final-score").textContent = score;
-    document.getElementById("correct-count").textContent = correctCount;
-    document.getElementById("wrong-count").textContent = wrongCount;
-    document.getElementById("percentage").textContent = `${percentage}%`;
-
-    const resultIcon = document.getElementById("result-icon");
-    const resultTitle = document.getElementById("result-title");
-    const resultMessage = document.getElementById("result-message");
-
-    if (percentage === 100) {
-        resultIcon.textContent = "🏆";
-        resultTitle.textContent = "Perfeito!";
-        resultMessage.textContent =
-            "Incrível! Você acertou todas as perguntas!";
-    } else if (percentage >= 70) {
-        resultIcon.textContent = "🔥";
-        resultTitle.textContent = "Mandou muito bem!";
-        resultMessage.textContent =
-            "Você demonstrou que entende bastante do assunto.";
-    } else if (percentage >= 40) {
-        resultIcon.textContent = "💪";
-        resultTitle.textContent = "Bom trabalho!";
-        resultMessage.textContent =
-            "Você está no caminho certo. Continue praticando!";
-    } else {
-        resultIcon.textContent = "🚀";
-        resultTitle.textContent = "Vamos de novo!";
-        resultMessage.textContent =
-            "Cada tentativa é uma oportunidade de aprender.";
-    }
-
-    showScreen(resultScreen);
-}
-
-function goHome() {
-    stopTimer();
-    showScreen(homeScreen);
-}
-
-startBtn.addEventListener("click", startGame);
-
-nextBtn.addEventListener("click", nextQuestion);
-
-restartBtn.addEventListener("click", startGame);
-
-homeBtn.addEventListener("click", goHome);
-
-logo.addEventListener("click", event => {
-    event.preventDefault();
-    goHome();
+let cart = new Map();
+let activeCategory = "Todos";
+let toastTimer;
+
+const $ = (selector) => document.querySelector(selector);
+
+const money = (value) => value.toLocaleString("pt-BR", {
+  style: "currency",
+  currency: "BRL"
 });
 
-quitBtn.addEventListener("click", () => {
-    const shouldQuit = window.confirm(
-        "Deseja sair do desafio? Seu progresso atual será perdido."
-    );
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
 
-    if (shouldQuit) {
-        goHome();
-    }
+function renderProducts() {
+  const visible = products.filter((product) =>
+    activeCategory === "Todos" || product.category === activeCategory
+  );
+
+  $("#productGrid").innerHTML = visible.map((product) => `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${product.image}" alt="${escapeHTML(product.name)}"
+          loading="lazy">
+        <span class="product-category">${escapeHTML(product.category)}</span>
+      </div>
+      <div class="product-info">
+        <h3>${escapeHTML(product.name)}</h3>
+        <p>${escapeHTML(product.description)}</p>
+        <div class="product-bottom">
+          <span class="product-price">${money(product.price)}</span>
+          <button class="add-button" data-add="${product.id}"
+            aria-label="Adicionar ${escapeHTML(product.name)} ao carrinho">+</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function cartQuantity() {
+  let total = 0;
+  for (const quantity of cart.values()) total += quantity;
+  return total;
+}
+
+function cartTotal() {
+  let total = 0;
+  for (const [id, quantity] of cart) {
+    const product = products.find((item) => item.id === id);
+    if (product) total += product.price * quantity;
+  }
+  return total;
+}
+
+function renderCart() {
+  const entries = [...cart.entries()].filter(([id, quantity]) =>
+    products.some((product) => product.id === id) && quantity > 0
+  );
+
+  $("#cartCount").textContent = cartQuantity();
+  $("#cartTotal").textContent = money(cartTotal());
+
+  if (!entries.length) {
+    $("#cartItems").innerHTML = `
+      <div class="empty-cart">
+        <div style="font-size:42px">♡</div>
+        <p>Seu carrinho está esperando por uma delícia!</p>
+        <button class="btn btn-primary" id="browseProducts">Ver cardápio</button>
+      </div>`;
+    return;
+  }
+
+  $("#cartItems").innerHTML = entries.map(([id, quantity]) => {
+    const product = products.find((item) => item.id === id);
+    return `
+      <article class="cart-item">
+        <img src="${product.image}" alt="${escapeHTML(product.name)}">
+        <div>
+          <h3>${escapeHTML(product.name)}</h3>
+          <p>${money(product.price * quantity)}</p>
+          <div class="quantity">
+            <button data-change="${id}" data-delta="-1"
+              aria-label="Diminuir quantidade">−</button>
+            <span>${quantity}</span>
+            <button data-change="${id}" data-delta="1"
+              aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="remove-item" data-remove="${id}">Remover</button>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+function showToast(message) {
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("visible"), 2400);
+}
+
+function changeCart(id, delta) {
+  const current = cart.get(id) || 0;
+  const next = current + delta;
+
+  if (next <= 0) cart.delete(id);
+  else cart.set(id, next);
+
+  renderCart();
+}
+
+function openCart() {
+  $("#cartPanel").classList.add("open");
+  $("#overlay").classList.add("visible");
+  document.body.classList.add("cart-open");
+  $("#closeCart").focus();
+}
+
+function closeCart() {
+  $("#cartPanel").classList.remove("open");
+  $("#overlay").classList.remove("visible");
+  document.body.classList.remove("cart-open");
+  $("#openCart").focus();
+}
+
+function sendWhatsApp(message) {
+  const number = WHATSAPP_NUMBER.replace(/\D/g, "");
+
+  if (!/^\d{12,13}$/.test(number) || /^55(\d)\1+$/.test(number)) {
+    showToast("Configure o número de WhatsApp no arquivo script.js.");
+    return;
+  }
+
+  const url = "https://wa.me/" + number + "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function checkout() {
+  if (cart.size === 0) {
+    showToast("Adicione pelo menos um produto ao carrinho.");
+    return;
+  }
+
+  const name = $("#customerName").value.trim();
+  const address = $("#customerAddress").value.trim();
+  const notes = $("#customerNotes").value.trim();
+
+  if (!name) {
+    $("#customerName").focus();
+    showToast("Informe seu nome para continuar.");
+    return;
+  }
+
+  const lines = [...cart.entries()].map(([id, quantity]) => {
+    const product = products.find((item) => item.id === id);
+    return `• ${product.name} x${quantity} — ${money(product.price * quantity)}`;
+  });
+
+  const message = [
+    "Olá! Gostaria de fazer um pedido na Doce Encanto 🍰",
+    "",
+    `Nome: ${name}`,
+    address ? `Endereço/retirada: ${address}` : "",
+    "",
+    "MEU PEDIDO:",
+    ...lines,
+    "",
+    `TOTAL DOS PRODUTOS: ${money(cartTotal())}`,
+    "",
+    notes ? `Observações: ${notes}` : "",
+    "",
+    "Por favor, confirme a disponibilidade, o prazo e a entrega. Obrigado(a)!"
+  ].filter((line) => line !== "").join("\n");
+
+  sendWhatsApp(message);
+}
+
+$("#productGrid").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-add]");
+  if (!button) return;
+
+  const id = Number(button.dataset.add);
+  const product = products.find((item) => item.id === id);
+  if (!product) return;
+
+  changeCart(id, 1);
+  showToast(`${product.name} adicionado ao carrinho!`);
 });
+
+$("#filters").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-category]");
+  if (!button) return;
+
+  activeCategory = button.dataset.category;
+  document.querySelectorAll(".filter").forEach((filter) => {
+    filter.classList.toggle("active", filter === button);
+  });
+  renderProducts();
+});
+
+$("#cartItems").addEventListener("click", (event) => {
+  if (event.target.id === "browseProducts") {
+    closeCart();
+    $("#produtos").scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+
+  const change = event.target.closest("[data-change]");
+  const remove = event.target.closest("[data-remove]");
+
+  if (change) {
+    changeCart(Number(change.dataset.change), Number(change.dataset.delta));
+  }
+
+  if (remove) {
+    cart.delete(Number(remove.dataset.remove));
+    renderCart();
+  }
+});
+
+$("#openCart").addEventListener("click", openCart);
+$("#closeCart").addEventListener("click", closeCart);
+$("#overlay").addEventListener("click", closeCart);
+$("#checkout").addEventListener("click", checkout);
+
+$("#contactButton").addEventListener("click", () => {
+  sendWhatsApp("Olá! Gostaria de conhecer o cardápio da Doce Encanto 🍰");
+});
+
+$("#menuToggle").addEventListener("click", () => {
+  const nav = $("#nav");
+  const isOpen = nav.classList.toggle("open");
+  $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
+  $("#menuToggle").setAttribute("aria-label",
+    isOpen ? "Fechar menu" : "Abrir menu");
+  $("#menuToggle").textContent = isOpen ? "✕" : "☰";
+});
+
+$("#nav").addEventListener("click", (event) => {
+  if (event.target.closest("a")) {
+    $("#nav").classList.remove("open");
+    $("#menuToggle").setAttribute("aria-expanded", "false");
+    $("#menuToggle").setAttribute("aria-label", "Abrir menu");
+    $("#menuToggle").textContent = "☰";
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && $("#cartPanel").classList.contains("open")) {
+    closeCart();
+  }
+});
+
+$("#year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();

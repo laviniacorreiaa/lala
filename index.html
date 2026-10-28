@@ -2,164 +2,179 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0b16">
-    <title>Teste seu Conhecimento | Desafie sua mente</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f2">
+  <meta name="description" content="Bolos artesanais, brigadeiros e doces feitos com carinho. Conheça nosso cardápio e faça seu pedido!">
+  <title>Doce Encanto | Confeitaria Artesanal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="announcement">
+    Feito com amor, servido com carinho ♡
+  </div>
 
-    <header class="topbar">
-        <a href="#" class="logo" id="logo">
-            <span class="logo-icon"> Q </span>
-            Teste seu <span>Conhecimento </span>
-        </a>
-        <div class="top-label">
-            <span class="status-dot"></span>
-            DESAFIO DE CONHECIMENTO
+  <header class="header">
+    <a href="#inicio" class="logo">
+      <span class="logo-icon">✿</span>
+      <span>doce <strong>encanto</strong>
+        <small>CONFEITARIA ARTESANAL</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Cardápio</a>
+      <a href="#sobre">Nossa história</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <button class="cart-button" id="openCart">
+      ♡ Carrinho <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">✦ UM PEDACINHO DE FELICIDADE ✦</span>
+        <h1>Momentos doces,<br>memórias <em>especiais.</em></h1>
+        <p>
+          Bolos artesanais e doces feitos à mão, com
+          ingredientes selecionados e muito amor em cada detalhe.
+        </p>
+        <div class="hero-actions">
+          <a href="#produtos" class="btn btn-primary">Ver nosso cardápio ↗</a>
+          <a href="#sobre" class="text-link">Conheça nossa história</a>
         </div>
-    </header>
+        <div class="hero-note">
+          <span>♡</span> Produção artesanal · Ingredientes selecionados
+        </div>
+      </div>
 
-    <main class="container">
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+          alt="Bolo decorado de chocolate"
+        >
+        <div class="floating-note">
+          <span>✿</span>
+          <div><strong>Feito com amor</strong><small>Do jeitinho que você merece</small></div>
+        </div>
+        <div class="round-stamp">DOCE<br>VIDA ♡</div>
+      </div>
+    </section>
 
-        <!-- TELA INICIAL -->
-        <section id="home-screen" class="screen home-screen">
-            <div class="hero-badge">✦ TESTE SEU CONHECIMENTO</div>
+    <section class="benefits">
+      <div><span>♡</span><p><strong>Feito à mão</strong><small>Cada detalhe importa</small></p></div>
+      <div><span>✿</span><p><strong>Ingredientes selecionados</strong><small>Qualidade em cada mordida</small></p></div>
+      <div><span>♧</span><p><strong>Feito para você</strong><small>Momentos que merecem doce</small></p></div>
+    </section>
 
-            <h1>Seu conhecimento.<br>
-                <span>Seu próximo nível.</span>
-            </h1>
+    <section class="products-section" id="produtos">
+      <div class="section-heading">
+        <span class="eyebrow">NOSSO CANTINHO DOCE</span>
+        <h2>Escolha sua <em>tentação</em></h2>
+        <p>Uma seleção deliciosa para adoçar o seu dia.</p>
+      </div>
 
-            <p class="subtitle">
-                Responda perguntas, acumule pontos e descubra
-                até onde você consegue chegar.
-            </p>
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="Todos">Todos</button>
+        <button class="filter" data-category="Bolos">Bolos</button>
+        <button class="filter" data-category="Docinhos">Docinhos</button>
+        <button class="filter" data-category="Cupcakes">Cupcakes</button>
+        <button class="filter" data-category="Sobremesas">Sobremesas</button>
+      </div>
 
-            <div class="stats">
-                <div class="stat-card">
-                    <span class="stat-icon">🎯</span>
-                    <strong>4 opções</strong>
-                    <small>por pergunta</small>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">⚡</span>
-                    <strong>15 segundos</strong>
-                    <small>para responder</small>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-icon">🏆</span>
-                    <strong>Até 100%</strong>
-                    <small>de aproveitamento</small>
-                </div>
-            </div>
+      <div class="product-grid" id="productGrid">
+        <p class="loading">Preparando nossas delícias...</p>
+      </div>
+    </section>
 
-            <div class="setup-card">
-                <label for="category">ESCOLHA SUA CATEGORIA</label>
-                <select id="category">
-                    <option value="todas">🌎 Todas as categorias</option>
-                    <option value="ciencia">🔬 Ciência</option>
-                    <option value="tecnologia">💻 Tecnologia</option>
-                    <option value="games">🎮 Games</option>
-                    <option value="geografia">🌍 Geografia</option>
-                </select>
+    <section class="story" id="sobre">
+      <div class="story-image">
+        <img
+          src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85"
+          alt="Sobremesa artesanal preparada com cuidado"
+          loading="lazy"
+        >
+      </div>
+      <div class="story-content">
+        <span class="eyebrow">MAIS QUE DOCES, SENTIMENTOS</span>
+        <h2>Uma pitada de amor,<br><em>muitas doses de carinho.</em></h2>
+        <p>
+          Acreditamos que os melhores momentos merecem um sabor especial.
+          Por isso, cada receita é preparada com dedicação, cuidado
+          e aquele gostinho de feito em casa.
+        </p>
+        <p>
+          Seja para comemorar, presentear ou simplesmente se mimar,
+          queremos fazer parte dos seus momentos felizes.
+        </p>
+        <a href="#produtos" class="btn btn-primary">Encontrar meu doce ♡</a>
+      </div>
+    </section>
 
-                <button id="start-btn" class="primary-btn">
-                    Começar desafio <span>→</span>
-                </button>
+    <section class="quote">
+      <span>“</span>
+      <h2>A vida fica mais bonita<br>com um pouquinho de <em>açúcar.</em></h2>
+      <p>Um doce abraço em forma de sobremesa.</p>
+    </section>
 
-                <p class="setup-note">Grátis para jogar · Sem cadastro</p>
-            </div>
-        </section>
+    <section class="contact-section" id="contato">
+      <div>
+        <span class="eyebrow">VAMOS ADOÇAR SEU DIA?</span>
+        <h2>Seu próximo doce<br>favorito está aqui.</h2>
+        <p>Escolha seus favoritos e envie seu pedido pelo WhatsApp.</p>
+      </div>
+      <button class="btn btn-primary" id="contactButton">
+        Falar com a confeitaria ↗
+      </button>
+    </section>
+  </main>
 
-        <!-- TELA DO JOGO -->
-        <section id="quiz-screen" class="screen hidden">
-            <div class="quiz-top">
-                <button id="quit-btn" class="text-btn">← Sair</button>
-                <span class="question-counter" id="question-counter">
-                    PERGUNTA 1 DE 10
-                </span>
-                <div class="score-pill">⭐ <span id="score">0</span></div>
-            </div>
+  <footer class="footer">
+    <a href="#inicio" class="logo">
+      <span class="logo-icon">✿</span>
+      <span>doce <strong>encanto</strong><small>CONFEITARIA ARTESANAL</small></span>
+    </a>
+    <p>Feito com ♡ e uma pitada de açúcar.</p>
+    <span>© <span id="year"></span> Doce Encanto</span>
+  </footer>
 
-            <div class="progress-track">
-                <div id="progress-bar" class="progress-bar"></div>
-            </div>
+  <div class="overlay" id="overlay"></div>
 
-            <div class="quiz-card">
-                <div class="question-meta">
-                    <span id="question-category" class="category-tag">
-                        CATEGORIA
-                    </span>
-                    <span id="timer" class="timer">⏱ 15s</span>
-                </div>
+  <aside class="cart-panel" id="cartPanel"
+    role="dialog" aria-modal="true" aria-label="Seu carrinho">
+    <div class="cart-header">
+      <div><span class="eyebrow">SUA SELEÇÃO</span><h2>Meu carrinho ♡</h2></div>
+      <button class="close-cart" id="closeCart" aria-label="Fechar">✕</button>
+    </div>
 
-                <h2 id="question-text">Sua pergunta aparecerá aqui.</h2>
+    <div class="cart-items" id="cartItems"></div>
 
-                <p class="answer-instruction">
-                    Escolha uma das alternativas abaixo.
-                </p>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <label for="customerName">Seu nome</label>
+      <input id="customerName" type="text" maxlength="80" placeholder="Como podemos te chamar?">
+      <label for="customerAddress">Endereço ou retirada (opcional)</label>
+      <input id="customerAddress" type="text" maxlength="200" placeholder="Informe aqui">
+      <label for="customerNotes">Observações (opcional)</label>
+      <textarea id="customerNotes" maxlength="500" placeholder="Data desejada, sabor, mensagem..."></textarea>
+      <button class="btn btn-primary checkout-button" id="checkout">
+        Finalizar pelo WhatsApp ↗
+      </button>
+      <p class="checkout-note">O pedido será enviado para confirmação.</p>
+    </div>
+  </aside>
 
-                <div id="answers" class="answers"></div>
-
-                <div id="feedback" class="feedback hidden"></div>
-
-                <button id="next-btn" class="primary-btn hidden">
-                    Próxima pergunta <span>→</span>
-                </button>
-            </div>
-
-            <p class="quiz-footer">Pense rápido. Confie no seu conhecimento.</p>
-        </section>
-
-        <!-- TELA DE RESULTADO -->
-        <section id="result-screen" class="screen hidden">
-            <div class="result-icon" id="result-icon">🏆</div>
-            <p class="eyebrow">DESAFIO CONCLUÍDO</p>
-            <h1 id="result-title">Mandou bem!</h1>
-            <p id="result-message" class="subtitle">
-                Veja como você se saiu.
-            </p>
-
-            <div class="result-card">
-                <span class="result-label">SUA PONTUAÇÃO</span>
-                <div class="final-score">
-                    <span id="final-score">0</span>
-                    <small>pontos</small>
-                </div>
-
-                <div class="result-divider"></div>
-
-                <div class="result-stats">
-                    <div>
-                        <strong id="correct-count">0</strong>
-                        <span>Acertos</span>
-                    </div>
-                    <div>
-                        <strong id="wrong-count">0</strong>
-                        <span>Erros</span>
-                    </div>
-                    <div>
-                        <strong id="percentage">0%</strong>
-                        <span>Aproveitamento</span>
-                    </div>
-                </div>
-            </div>
-
-            <button id="restart-btn" class="primary-btn">
-                Jogar novamente <span>↻</span>
-            </button>
-            <button id="home-btn" class="secondary-btn">
-                Voltar ao início
-            </button>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <p>Teste seu Conhecimento © <span id="year"></span> · APRENDA JOGANDO</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
