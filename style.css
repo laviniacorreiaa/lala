@@ -19,6 +19,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+a span {
+    margin-left: 4px;
+}
 
 body {
     min-height: 100vh;
@@ -67,7 +70,7 @@ select:focus-visible {
 
 .logo > span:last-child {
     color: var(--purple-light);
-    margin-left: -8px;
+    margin-left: 1px;
 }
 
 .logo-icon {
