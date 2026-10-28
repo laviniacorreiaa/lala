@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b16">
+    <title>QuizZone | Desafie sua mente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="logo" id="logo">
+            <span class="logo-icon">Q</span>
+            Quiz<span>Zone</span>
+        </a>
+        <div class="top-label">
+            <span class="status-dot"></span>
+            DESAFIO DE CONHECIMENTO
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- TELA INICIAL -->
+        <section id="home-screen" class="screen home-screen">
+            <div class="hero-badge">✦ TESTE SEU CONHECIMENTO</div>
+
+            <h1>Seu conhecimento.<br>
+                <span>Seu próximo nível.</span>
+            </h1>
+
+            <p class="subtitle">
+                Responda perguntas, acumule pontos e descubra
+                até onde você consegue chegar.
+            </p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-icon">🎯</span>
+                    <strong>4 opções</strong>
+                    <small>por pergunta</small>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">⚡</span>
+                    <strong>15 segundos</strong>
+                    <small>para responder</small>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🏆</span>
+                    <strong>Até 100%</strong>
+                    <small>de aproveitamento</small>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <label for="category">ESCOLHA SUA CATEGORIA</label>
+                <select id="category">
+                    <option value="todas">🌎 Todas as categorias</option>
+                    <option value="ciencia">🔬 Ciência</option>
+                    <option value="tecnologia">💻 Tecnologia</option>
+                    <option value="games">🎮 Games</option>
+                    <option value="geografia">🌍 Geografia</option>
+                </select>
+
+                <button id="start-btn" class="primary-btn">
+                    Começar desafio <span>→</span>
+                </button>
+
+                <p class="setup-note">Grátis para jogar · Sem cadastro</p>
+            </div>
+        </section>
+
+        <!-- TELA DO JOGO -->
+        <section id="quiz-screen" class="screen hidden">
+            <div class="quiz-top">
+                <button id="quit-btn" class="text-btn">← Sair</button>
+                <span class="question-counter" id="question-counter">
+                    PERGUNTA 1 DE 10
+                </span>
+                <div class="score-pill">⭐ <span id="score">0</span></div>
+            </div>
+
+            <div class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="question-meta">
+                    <span id="question-category" class="category-tag">
+                        CATEGORIA
+                    </span>
+                    <span id="timer" class="timer">⏱ 15s</span>
+                </div>
+
+                <h2 id="question-text">Sua pergunta aparecerá aqui.</h2>
+
+                <p class="answer-instruction">
+                    Escolha uma das alternativas abaixo.
+                </p>
+
+                <div id="answers" class="answers"></div>
+
+                <div id="feedback" class="feedback hidden"></div>
+
+                <button id="next-btn" class="primary-btn hidden">
+                    Próxima pergunta <span>→</span>
+                </button>
+            </div>
+
+            <p class="quiz-footer">Pense rápido. Confie no seu conhecimento.</p>
+        </section>
+
+        <!-- TELA DE RESULTADO -->
+        <section id="result-screen" class="screen hidden">
+            <div class="result-icon" id="result-icon">🏆</div>
+            <p class="eyebrow">DESAFIO CONCLUÍDO</p>
+            <h1 id="result-title">Mandou bem!</h1>
+            <p id="result-message" class="subtitle">
+                Veja como você se saiu.
+            </p>
+
+            <div class="result-card">
+                <span class="result-label">SUA PONTUAÇÃO</span>
+                <div class="final-score">
+                    <span id="final-score">0</span>
+                    <small>pontos</small>
+                </div>
+
+                <div class="result-divider"></div>
+
+                <div class="result-stats">
+                    <div>
+                        <strong id="correct-count">0</strong>
+                        <span>Acertos</span>
+                    </div>
+                    <div>
+                        <strong id="wrong-count">0</strong>
+                        <span>Erros</span>
+                    </div>
+                    <div>
+                        <strong id="percentage">0%</strong>
+                        <span>Aproveitamento</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="restart-btn" class="primary-btn">
+                Jogar novamente <span>↻</span>
+            </button>
+            <button id="home-btn" class="secondary-btn">
+                Voltar ao início
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>QUIZZONE © <span id="year"></span> · APRENDA JOGANDO</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
